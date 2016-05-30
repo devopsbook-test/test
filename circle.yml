@@ -19,5 +19,5 @@ deployment:
     branch: develop
     commands:
       - echo "this is develop?"
-      - markdown-pdf 1/*.md -o ./
+      - markdown-pdf 1/1.md -o 1.pdf
       - ls -l
