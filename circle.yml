@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   pre:
-    - sudo apt-get install pdftk
+    - sudo apt-get install pdftk otf-ipafont-gothic
     - npm install -g markdown-pdf
 
 test:
@@ -20,7 +20,13 @@ deployment:
     branch: develop
     commands:
       - echo "this is develop?"
-      - markdown-pdf 1/*.md -o 1.pdf
-      - ls -l
-      - pdftk *.pdf dump_data
+      - |
+        for chapter in `ls -1 [1-5]` ; do
+          cd ${chapter}
+          markdown-pdf *.md -o ${chapter}.pdf -s ../pdf.css
+          pdftk *.pdf dump_data | grep NumberOfPages
+          cd ..
+        done
+#      - cd 1 && markdown-pdf *.md -o 1.pdf
+#      - pdftk *.pdf dump_data
 
