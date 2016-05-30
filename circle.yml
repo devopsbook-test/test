@@ -22,5 +22,5 @@ deployment:
       - echo "this is develop?"
       - markdown-pdf 1/*.md -o 1.pdf
       - ls -l
-      - pdfdk *.pdf dump_data
+      - pdftk *.pdf dump_data
 
