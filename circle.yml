@@ -10,4 +10,4 @@ deployment:
   develop:
     branch: develop
     commands:
-      - echo "this is develop"
+      - echo "this is develop?"
