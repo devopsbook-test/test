@@ -4,6 +4,7 @@ machine:
 
 dependencies:
   pre:
+    - sudo apt-get install pdftk
     - npm install -g markdown-pdf
 
 test:
@@ -19,5 +20,7 @@ deployment:
     branch: develop
     commands:
       - echo "this is develop?"
-      - markdown-pdf 1/1.md -o 1.pdf
+      - markdown-pdf 1/*.md -o 1.pdf
       - ls -l
+      - pdfdk *.pdf dump_data
+
