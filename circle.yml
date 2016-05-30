@@ -21,11 +21,9 @@ deployment:
     commands:
       - echo "this is develop?"
       - |
-        for chapter in `ls -1 [1-5]` ; do
-          cd ${chapter}
-          markdown-pdf *.md -o ${chapter}.pdf -s ../pdf.css
-          pdftk *.pdf dump_data | grep NumberOfPages
-          cd ..
+        for chapter in `ls -1d [1-5]` ; do
+          cd ${chapter} && markdown-pdf *.md -o ${chapter}.pdf -s ../pdf.css && pdftk *.pdf dump_data | grep NumberOfPages && cd ..
+          ls -lR *
         done
 #      - cd 1 && markdown-pdf *.md -o 1.pdf
 #      - pdftk *.pdf dump_data
