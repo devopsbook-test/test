@@ -1,0 +1,13 @@
+test:
+  override:
+    - exit 0
+
+deployment:
+  publish:
+    branch: master
+    commands:
+      - echo "this is master"
+  develop:
+    branch: develop
+    commands:
+      - echo "this is develop"
